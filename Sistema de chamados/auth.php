@@ -22,3 +22,15 @@ $users = array(
         "password" => password_hash("123456", PASSWORD_DEFAULT)
     ),
 );
+
+foreach ($users as $user) {
+    if($user["email"] == $email && password_verify($password, $user["password"])){
+        $_SESSION["name"] = $user["name"];
+        header("location:dashboard.php");
+        exit;
+    }
+}
+
+$_SESSION["msg_warning"] = "Usuário ou senha inválidos!!!";
+header("location:message.php");
+exit;
