@@ -1,3 +1,4 @@
+<?php require_once dirname(__DIR__) . "/Controller/Auth_Verify.php"; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
