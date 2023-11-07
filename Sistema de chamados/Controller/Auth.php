@@ -1,7 +1,21 @@
 <?php
 session_start();
 
-function login(){
+switch ($_GET["operation"]) {
+    case "login":
+        login();
+        break;
+    case "logout":
+        logout();
+        break;
+    default:
+        $_SESSION["msg_warning"] = "Operação inválida!!!";
+        header("location:../View/message.php");
+        exit;
+}
+
+function login()
+{
     if (empty($_POST)) {
         $_SESSION["msg_error"] = "Ops, houve um erro inesperado!!!";
         header("location:../View/message.php");
@@ -38,6 +52,9 @@ function login(){
     exit;
 }
 
-function logout(){
-    
+function logout()
+{
+    unset($_SESSION["user_data"]);
+    header("location:../index.html");
+    exit;
 }

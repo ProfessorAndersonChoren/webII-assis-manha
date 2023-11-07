@@ -14,11 +14,11 @@
             <a href="add-new-call.php" class="text-white text-decoration-none">Novo chamado</a>
             <a href="list-calls.php" class="text-white text-decoration-none">Lista de chamados</a>
         </div>
-        <a href="index.html" class="text-white text-decoration-none">Sair</a>
+        <a href="../Controller/Auth.php?operation=logout" class="text-white text-decoration-none">Sair</a>
     </nav>
     <main class="text-center">
         <?php session_start(); ?>
-        <h1>Bem-vindo(a) de volta <?= $_SESSION["name"] ?></h1>
+        <h1>Bem-vindo(a) de volta <?= $_SESSION["user_data"]["name"] ?></h1>
     </main>
 </body>
 
