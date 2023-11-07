@@ -11,8 +11,8 @@
 <body class="p-5">
     <nav class="bg-info p-3 d-flex justify-content-between">
         <div>
-            <a href="add-new-call.html" class="text-white text-decoration-none">Novo chamado</a>
-            <a href="list-calls.html" class="text-white text-decoration-none">Lista de chamados</a>
+            <a href="add-new-call.php" class="text-white text-decoration-none">Novo chamado</a>
+            <a href="list-calls.php" class="text-white text-decoration-none">Lista de chamados</a>
         </div>
         <a href="index.html" class="text-white text-decoration-none">Sair</a>
     </nav>
