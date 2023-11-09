@@ -12,7 +12,7 @@
 <body class="m-5">
   <nav class="bg-info d-flex justify-content-between p-3">
     <div>
-      <a href="add-new-call.php" class="text-white text-decoration-none">Abrir chamado</a>
+      <a href="add-new-call.php" class="text-white text-decoration-none">Novo chamado</a>
       <a href="list-calls.php" class="text-white text-decoration-none">Listar chamados</a>
     </div>
     <a href="../Controller/Auth.php?operation=logout" class="text-white text-decoration-none">Sair</a>

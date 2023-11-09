@@ -55,6 +55,6 @@ function login()
 function logout()
 {
     unset($_SESSION["user_data"]);
-    header("location:../index.html");
+    header("location:../../index.html");
     exit;
 }
