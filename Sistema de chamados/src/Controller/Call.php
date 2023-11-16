@@ -5,6 +5,7 @@ namespace QI\SistemaDeChamados\Controller;
 use QI\SistemaDeChamados\Model\Call;
 use QI\SistemaDeChamados\Model\Equipment;
 use QI\SistemaDeChamados\Model\User;
+use QI\SistemaDeChamados\Model\Repository\Connection;
 
 require_once dirname(dirname(__DIR__)) . "/vendor/autoload.php";
 
@@ -41,4 +42,6 @@ function insert()
     }
 
     // TODO Validar os dados vindos do formulário
+
+    // TODO Criar o objeto CallRepository
 }
