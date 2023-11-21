@@ -18,13 +18,13 @@
     <a href="../Controller/Auth.php?operation=logout" class="text-white text-decoration-none">Sair</a>
   </nav>
   <main class="bg-primary card d-flex align-items-center mt-5">
-    <form action="#" method="post" class="w-75 p-3">
+    <form action="../Controller/Call.php?operation=insert" method="post" class="w-75 p-3">
       <label for="user_name">Nome do usuário</label>
       <input type="text" id="user_name" name="user_name" class="form-control" required />
       <label for="user_email">Email do usuário</label>
       <input type="email" id="user_email" name="user_email" class="form-control" required />
       <label for="pc_number">Número do equipamento</label>
-      <input type="number" id="pc_number" name="pc_number" class="form-control" required />
+      <input type="text" id="pc_number" name="pc_number" class="form-control" required />
       <label for="floor">Andar do equipamento</label>
       <input type="number" id="floor" name="floor" class="form-control" required />
       <label for="room">Sala do equipamento</label>

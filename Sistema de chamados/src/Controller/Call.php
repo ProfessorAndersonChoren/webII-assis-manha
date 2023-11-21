@@ -2,10 +2,11 @@
 
 namespace QI\SistemaDeChamados\Controller;
 
+use Exception;
 use QI\SistemaDeChamados\Model\Call;
 use QI\SistemaDeChamados\Model\Equipment;
 use QI\SistemaDeChamados\Model\User;
-use QI\SistemaDeChamados\Model\Repository\Connection;
+use QI\SistemaDeChamados\Model\Repository\CallRepository;
 
 require_once dirname(dirname(__DIR__)) . "/vendor/autoload.php";
 
@@ -29,6 +30,7 @@ function insert()
     }
 
     $user = new User($_POST["user_email"]);
+    $user->id = 1;
     $user->name = $_POST["user_name"];
     $equipment = new Equipment(
         $_POST["pc_number"],
@@ -40,8 +42,24 @@ function insert()
     if (!empty($_POST["notes"])) {
         $call->notes = $_POST["notes"];
     }
+    
 
     // TODO Validar os dados vindos do formulário
 
-    // TODO Criar o objeto CallRepository
+    
+    try {
+        $callRepository = new CallRepository();
+        $result = $callRepository->insert($call);
+        if ($result) {
+            $_SESSION["msg_success"] = "Chamado registrado com sucesso!!!";
+        } else {
+            $_SESSION["msg_warning"] = "Não foi possível registrar o chamado!!!";
+        }
+    } catch (Exception $exception) {
+        $_SESSION["msg_error"] = "Houve um erro em nossa base de dados!!!";
+        $_SESSION["msg_exception"] = $exception->getMessage();
+    } finally {
+        header("location:../View/message.php");
+        exit;
+    }
 }

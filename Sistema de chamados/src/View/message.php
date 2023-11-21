@@ -43,6 +43,17 @@
         unset($_SESSION["msg_success"]);
     endif;
     ?>
+    <?php
+    if (!empty($_SESSION["msg_exception"])) :
+    ?>
+        <div class="alert alert-dark">
+            <p><?= $_SESSION["msg_exception"] ?></p>
+            <a href="../../index.html" class="alert-link">Voltar</a>
+        </div>
+    <?php
+        unset($_SESSION["msg_exception"]);
+    endif;
+    ?>
 </body>
 
 </html>
