@@ -3,9 +3,7 @@
 namespace QI\SistemaDeChamados\Controller;
 
 use Exception;
-use QI\SistemaDeChamados\Model\Call;
-use QI\SistemaDeChamados\Model\Equipment;
-use QI\SistemaDeChamados\Model\User;
+use QI\SistemaDeChamados\Model\{Call, User, Equipment};
 use QI\SistemaDeChamados\Model\Repository\CallRepository;
 
 require_once dirname(dirname(__DIR__)) . "/vendor/autoload.php";
@@ -42,11 +40,11 @@ function insert()
     if (!empty($_POST["notes"])) {
         $call->notes = $_POST["notes"];
     }
-    
+
 
     // TODO Validar os dados vindos do formulário
 
-    
+
     try {
         $callRepository = new CallRepository();
         $result = $callRepository->insert($call);
@@ -57,7 +55,7 @@ function insert()
         }
     } catch (Exception $exception) {
         $_SESSION["msg_error"] = "Houve um erro em nossa base de dados!!!";
-        $_SESSION["msg_exception"] = $exception->getMessage();
+        Logger::writeLog($exception->getMessage());
     } finally {
         header("location:../View/message.php");
         exit;
