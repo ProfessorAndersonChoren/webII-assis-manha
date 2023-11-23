@@ -15,7 +15,7 @@
     ?>
         <div class="alert alert-danger">
             <p><?= $_SESSION["msg_error"] ?></p>
-            <a href="../../index.html" class="alert-link">Voltar</a>
+            <a href="dashboard.php" class="alert-link">Voltar</a>
         </div>
     <?php
         unset($_SESSION["msg_error"]);
@@ -26,7 +26,7 @@
     ?>
         <div class="alert alert-warning">
             <p><?= $_SESSION["msg_warning"]; ?></p>
-            <a href="../../index.html" class="alert-link">Voltar</a>
+            <a href="dashboard.php" class="alert-link">Voltar</a>
         </div>
     <?php
         unset($_SESSION["msg_warning"]);
@@ -37,7 +37,7 @@
     ?>
         <div class="alert alert-success">
             <p><?= $_SESSION["msg_success"] ?></p>
-            <a href="../../index.html" class="alert-link">Voltar</a>
+            <a href="dashboard.php" class="alert-link">Voltar</a>
         </div>
     <?php
         unset($_SESSION["msg_success"]);
@@ -48,7 +48,7 @@
     ?>
         <div class="alert alert-dark">
             <p><?= $_SESSION["msg_exception"] ?></p>
-            <a href="../../index.html" class="alert-link">Voltar</a>
+            <a href="dashboard.php" class="alert-link">Voltar</a>
         </div>
     <?php
         unset($_SESSION["msg_exception"]);

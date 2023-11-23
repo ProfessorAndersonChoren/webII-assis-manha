@@ -13,6 +13,9 @@ switch ($_GET["operation"]) {
     case "insert":
         insert();
         break;
+    case "findAll":
+        findAll();
+        break;
     default:
         $_SESSION["msg_warning"] = "Operação inválida!!!";
         header("location:../View/message.php");
@@ -55,6 +58,21 @@ function insert()
         }
     } catch (Exception $exception) {
         $_SESSION["msg_error"] = "Houve um erro em nossa base de dados!!!";
+        Logger::writeLog($exception->getMessage());
+    } finally {
+        header("location:../View/message.php");
+        exit;
+    }
+}
+
+function findAll()
+{
+    try {
+        $call_repository = new CallRepository();
+        $_SESSION["list-of-calls"] = $call_repository->findAll();
+        header("location:../View/list-of-calls.php");
+    } catch (Exception $exception) {
+        $_SESSION["msg_error"] = "Ops, houve um erro em nossa base de dados";
         Logger::writeLog($exception->getMessage());
     } finally {
         header("location:../View/message.php");

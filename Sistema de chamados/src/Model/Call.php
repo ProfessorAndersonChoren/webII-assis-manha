@@ -14,7 +14,7 @@ class Call{
      * This method create a new Call object
      * @param User $user
      * @param Equipment $equipment
-     * @param string $classification
+     * @param int $classification
      * @param string $description
      */
     public function __construct($user,$equipment,$classification,$description){

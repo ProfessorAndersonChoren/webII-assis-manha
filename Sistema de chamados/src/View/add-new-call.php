@@ -31,9 +31,9 @@
       <input type="number" id="room" name="room" class="form-control" required />
       <label for="classification" class="d-block">Classificação</label>
       <select name="classification" id="classification" class="form-select">
-        <option value="low">Baixo</option>
-        <option value="medium">Médio</option>
-        <option value="high">Alto</option>
+        <option value=1>Baixo</option>
+        <option value=2>Médio</option>
+        <option value=3>Alto</option>
       </select>
       <label for="description">Descrição da ocorrência</label>
       <textarea name="description" id="description" cols="30" rows="5" class="form-control" required></textarea>
