@@ -13,7 +13,7 @@
     <nav class="bg-info p-3 d-flex justify-content-between">
         <div>
             <a href="add-new-call.php" class="text-white text-decoration-none">Novo chamado</a>
-            <a href="list-calls.php" class="text-white text-decoration-none">Lista de chamados</a>
+            <a href="../Controller/Call.php?operation=findAll" class="text-white text-decoration-none">Lista de chamados</a>
         </div>
         <a href="../Controller/Auth.php?operation=logout" class="text-white text-decoration-none">Sair</a>
     </nav>
