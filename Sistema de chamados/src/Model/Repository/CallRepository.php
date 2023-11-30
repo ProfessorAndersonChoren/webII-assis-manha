@@ -34,4 +34,12 @@ class CallRepository
         $stmt = $this->connection->query("select c.*,u.name from calls c inner join users u on u.id = c.user_id order by classification desc;");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function findOne($id){}
+
+    function delete($id){
+        $stmt = $this->connection->prepare("delete from calls where id=?");
+        $stmt->bindParam(1,$id);
+        return $stmt->execute();
+    }
 }

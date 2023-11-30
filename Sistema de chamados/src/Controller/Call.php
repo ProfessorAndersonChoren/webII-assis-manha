@@ -87,14 +87,31 @@ function findAll()
     }
 }
 
-function findOne(){}
+function findOne()
+{
+}
 
-function delete(){
+function delete()
+{
     $id = $_GET["code"];
-    if(empty($id)){
+    if (empty($id)) {
         $_SESSION["msg_error"] = "O código do chamado é inválido!!!";
         header("location:../View/message.php");
         exit;
     }
-    echo "O código é: $id";
+    try {
+        $call_repository = new CallRepository();
+        $result = $call_repository->delete($id);
+        if ($result) {
+            $_SESSION["msg_success"] = "Chamado removido com sucesso!!!";
+        } else {
+            $_SESSION["msg_warning"] = "Lamento, não foi possível remover o chamado!!!";
+        }
+    } catch (Exception $exception) {
+        $_SESSION["msg_error"] =
+            "Ops, houve um erro em nossa base de dados";
+        Logger::writeLog($exception->getMessage());
+    } finally {
+        header("location:../View/message.php");
+    }
 }
