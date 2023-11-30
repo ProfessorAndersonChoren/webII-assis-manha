@@ -89,6 +89,21 @@ function findAll()
 
 function findOne()
 {
+    $id = $_GET["code"];
+    if(empty($id)){
+        $_SESSION["msg_error"] = "O código do chamado é inválido!!!";
+        header("location:../View/message.php");
+        exit;
+    }
+    $call_repository = new CallRepository();
+    $call = $call_repository->findOne($id);
+    if(!empty($call)){
+        $_SESSION["call"] = $call;
+        header("location:../View/call-edit.php");
+    }else{
+        $_SESSION["msg_warning"] = "O código $id não pertence a nenhum chamado em nossa base de dados";
+        header("location:../View/message.php");
+    }
 }
 
 function delete()

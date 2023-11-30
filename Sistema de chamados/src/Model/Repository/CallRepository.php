@@ -30,16 +30,22 @@ class CallRepository
         return $stmt->execute();
     }
 
-    public function findAll(){
+    public function findAll()
+    {
         $stmt = $this->connection->query("select c.*,u.name from calls c inner join users u on u.id = c.user_id order by classification desc;");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function findOne($id){}
+    function findOne($id)
+    {
+        $stmt = $this->connection->query("select * from calls where id=$id");
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
-    function delete($id){
+    function delete($id)
+    {
         $stmt = $this->connection->prepare("delete from calls where id=?");
-        $stmt->bindParam(1,$id);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
 }
